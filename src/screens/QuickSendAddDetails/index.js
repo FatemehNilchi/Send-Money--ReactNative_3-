@@ -14,8 +14,15 @@ import ContactsProfile from '../../components/ContactsProfile';
 
 
 const QuickSendAddDetails = () => {
+
+
   return (
-    <QuickSendTemplate bigButton1={'Cancel'} bigButton2={'Send Money'}>
+    <QuickSendTemplate
+      cancelButton={'Cancel'}
+      nextButton={'Send Money'}
+      prevPage={'QuickSendEnterAmount'}
+      cancelButtonOnPress={'Home'}
+      nextButtonOnPress={'Home'}>
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.balance}>$254.87</Text>
@@ -66,8 +73,6 @@ const QuickSendAddDetails = () => {
     </QuickSendTemplate>
   );
 };
-
-
 
 const styles = StyleSheet.create({
   container: {

@@ -10,7 +10,10 @@ import ContactSection from '../../components/ContactSection';
 import styles from './styles';
 
 
+
 export default function Home() {
+
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -32,7 +35,7 @@ export default function Home() {
           <ContactsProfile contact="Hannah" />
           <ContactsProfile contact="James" />
 
-          <TouchableOpacity style={styles.addContactButton}>
+          <TouchableOpacity style={styles.addContactButton} >
             <View style={styles.quickSendIcon}>
               <Icon name="plus" size={15} color="#000" />
             </View>

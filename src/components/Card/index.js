@@ -1,14 +1,24 @@
 import React from 'react';
-import {StyleSheet, Text, Image, TouchableOpacity,Dimensions } from 'react-native';
-
+import {
+  StyleSheet,
+  Text,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
-const containerWidth = (windowWidth / 2) - 35;
+const containerWidth = windowWidth / 2 - 35;
 
 
 export default function Card({background, cash, cardNumber}) {
+  const nav = useNavigation();
+
   return (
-    <TouchableOpacity style={[styles.container, {backgroundColor: background}]}>
+    <TouchableOpacity
+      onPress={() => nav.navigate('QuickSendEnterAmount')}
+      style={[styles.container, {backgroundColor: background}]}>
       <Image
         source={require('../../images/credit-card.png')}
         style={styles.image}
@@ -22,7 +32,7 @@ export default function Card({background, cash, cardNumber}) {
 
 const styles = StyleSheet.create({
   container: {
-    width:containerWidth,
+    width: containerWidth,
     borderRadius: 15,
     padding: 15,
   },

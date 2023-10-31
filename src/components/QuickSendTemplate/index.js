@@ -1,14 +1,19 @@
 import React from 'react';
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import {StyleSheet, TouchableOpacity,Text, View, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import BigButton from '../BigButton';
+import {useNavigation} from '@react-navigation/native';
 
+const QuickSendTemplate = ({children,prevPage, cancelButton, nextButton,cancelButtonOnPress,nextButtonOnPress}) => {
+  const nav = useNavigation();
 
-const QuickSendTemplate = ({children, bigButton1, bigButton2}) => {
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
       <View style={styles.header}>
-        <Icon name="return-up-back-outline" size={30} color="#fff" />
+        
+        <TouchableOpacity onPress={() => nav.navigate(prevPage)}>
+          <Icon name="return-up-back-outline" size={30} color="#fff" />
+        </TouchableOpacity>
         <Text style={styles.title}>Quick Send</Text>
       </View>
 
@@ -16,8 +21,8 @@ const QuickSendTemplate = ({children, bigButton1, bigButton2}) => {
         {children}
 
         <View style={styles.buttonContainer}>
-          <BigButton buttonText={bigButton1} colorMode="white" />
-          <BigButton buttonText={bigButton2} colorMode="blue" />
+          <BigButton buttonText={cancelButton} colorMode="white" buttonOnPress={() => nav.navigate(cancelButtonOnPress)} />
+          <BigButton buttonText={nextButton} colorMode="blue" buttonOnPress={() => nav.navigate(nextButtonOnPress)}/>
         </View>
       </View>
     </ScrollView>
@@ -33,7 +38,7 @@ const styles = StyleSheet.create({
   },
   header: {
     paddingHorizontal: 30,
-    marginTop: 30,
+    marginTop: 40,
   },
   title: {
     marginVertical: 30,

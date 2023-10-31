@@ -6,6 +6,8 @@ import QuickSendTemplate from '../../components/QuickSendTemplate';
 
 
 const QuickSendEnterAmount = () => {
+
+
   const [amount, setAmount] = useState('');
 
   const handleKeyPress = key => {
@@ -20,9 +22,13 @@ const QuickSendEnterAmount = () => {
     }
   };
 
-
   return (
-    <QuickSendTemplate bigButton1={'Cancel'} bigButton2={'Next'}>
+    <QuickSendTemplate
+      cancelButton={'Cancel'}
+      nextButton={'Next'}
+      prevPage={'Home'}
+      cancelButtonOnPress={'Home'}
+      nextButtonOnPress={'QuickSendAddDetails'}>
       <View style={styles.container}>
         <View style={styles.header}>
           <Text style={styles.amount}>{amount ? `$${amount}` : ''}</Text>
@@ -61,7 +67,6 @@ const QuickSendEnterAmount = () => {
     </QuickSendTemplate>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {

@@ -2,13 +2,13 @@ import React from 'react';
 import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 
 
-export default function BigButton({colorMode, buttonText}) {
+export default function BigButton({colorMode, buttonText,buttonOnPress}) {
   const buttonStyles =
     colorMode === 'white' ? styles.whiteButton : styles.blueButton;
 
 
   return (
-    <TouchableOpacity style={[styles.button, buttonStyles]}>
+    <TouchableOpacity onPress={buttonOnPress} style={[styles.button, buttonStyles]}>
       <Text style={[styles.buttonText, buttonStyles]}> {buttonText}</Text>
     </TouchableOpacity>
   );
